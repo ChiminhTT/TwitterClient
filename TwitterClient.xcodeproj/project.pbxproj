@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8748607B1FB1D6B900A6FF20 /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8748607A1FB1D6B900A6FF20 /* LandingViewModel.swift */; };
+		8748607D1FB1D6F600A6FF20 /* OAuthAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8748607C1FB1D6F600A6FF20 /* OAuthAccessToken.swift */; };
+		8748607F1FB1E58A00A6FF20 /* TwitterApiRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8748607E1FB1E58A00A6FF20 /* TwitterApiRequests.swift */; };
+		874860811FB1E67200A6FF20 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874860801FB1E67200A6FF20 /* StringExtensions.swift */; };
+		874860841FB1E93800A6FF20 /* NetworkAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874860831FB1E93800A6FF20 /* NetworkAlert.swift */; };
 		879EA3BD1FB1CC4700D89E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879EA3BC1FB1CC4700D89E71 /* AppDelegate.swift */; };
 		879EA3BF1FB1CC4700D89E71 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879EA3BE1FB1CC4700D89E71 /* LandingViewController.swift */; };
 		879EA3C21FB1CC4700D89E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879EA3C01FB1CC4700D89E71 /* Main.storyboard */; };
 		879EA3C41FB1CC4700D89E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879EA3C31FB1CC4700D89E71 /* Assets.xcassets */; };
-		879EA3C71FB1CC4700D89E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879EA3C51FB1CC4700D89E71 /* LaunchScreen.storyboard */; };
 		879EA3D81FB1D2D800D89E71 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */; };
 		879EA3D91FB1D2D800D89E71 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		879EA3DA1FB1D2D800D89E71 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */; };
 		879EA3DB1FB1D2D800D89E71 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		879EA3DE1FB1D41300D89E71 /* TwitterApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879EA3DD1FB1D41300D89E71 /* TwitterApiConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,15 +39,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8748607A1FB1D6B900A6FF20 /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		8748607C1FB1D6F600A6FF20 /* OAuthAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAccessToken.swift; sourceTree = "<group>"; };
+		8748607E1FB1E58A00A6FF20 /* TwitterApiRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterApiRequests.swift; sourceTree = "<group>"; };
+		874860801FB1E67200A6FF20 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		874860831FB1E93800A6FF20 /* NetworkAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAlert.swift; sourceTree = "<group>"; };
 		879EA3B91FB1CC4700D89E71 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879EA3BC1FB1CC4700D89E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		879EA3BE1FB1CC4700D89E71 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		879EA3C11FB1CC4700D89E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		879EA3C31FB1CC4700D89E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		879EA3C61FB1CC4700D89E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		879EA3C81FB1CC4700D89E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 		879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
+		879EA3DD1FB1D41300D89E71 /* TwitterApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterApiConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		874860781FB1D69C00A6FF20 /* LandingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				879EA3BE1FB1CC4700D89E71 /* LandingViewController.swift */,
+			);
+			path = LandingViewController;
+			sourceTree = "<group>";
+		};
+		874860791FB1D6A700A6FF20 /* LandingViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8748607A1FB1D6B900A6FF20 /* LandingViewModel.swift */,
+			);
+			path = LandingViewModels;
+			sourceTree = "<group>";
+		};
+		874860821FB1E92000A6FF20 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				874860831FB1E93800A6FF20 /* NetworkAlert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		879EA3B01FB1CC4700D89E71 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +112,7 @@
 		879EA3BB1FB1CC4700D89E71 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				879EA3BC1FB1CC4700D89E71 /* AppDelegate.swift */,
 				879EA3CE1FB1CD9C00D89E71 /* Controllers */,
 				879EA3D11FB1CDC000D89E71 /* Models */,
 				879EA3D01FB1CDB500D89E71 /* SupportingFiles */,
@@ -90,7 +125,8 @@
 		879EA3CE1FB1CD9C00D89E71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				879EA3BE1FB1CC4700D89E71 /* LandingViewController.swift */,
+				874860821FB1E92000A6FF20 /* Alerts */,
+				874860781FB1D69C00A6FF20 /* LandingViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -106,10 +142,9 @@
 		879EA3D01FB1CDB500D89E71 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				879EA3BC1FB1CC4700D89E71 /* AppDelegate.swift */,
 				879EA3C31FB1CC4700D89E71 /* Assets.xcassets */,
-				879EA3C51FB1CC4700D89E71 /* LaunchScreen.storyboard */,
 				879EA3C81FB1CC4700D89E71 /* Info.plist */,
+				874860801FB1E67200A6FF20 /* StringExtensions.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -117,6 +152,7 @@
 		879EA3D11FB1CDC000D89E71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				874860791FB1D6A700A6FF20 /* LandingViewModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +160,9 @@
 		879EA3D21FB1CDC600D89E71 /* TwitterAPI */ = {
 			isa = PBXGroup;
 			children = (
+				879EA3DD1FB1D41300D89E71 /* TwitterApiConstants.swift */,
+				8748607C1FB1D6F600A6FF20 /* OAuthAccessToken.swift */,
+				8748607E1FB1E58A00A6FF20 /* TwitterApiRequests.swift */,
 			);
 			path = TwitterAPI;
 			sourceTree = "<group>";
@@ -197,7 +236,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				879EA3C71FB1CC4700D89E71 /* LaunchScreen.storyboard in Resources */,
 				879EA3C41FB1CC4700D89E71 /* Assets.xcassets in Resources */,
 				879EA3C21FB1CC4700D89E71 /* Main.storyboard in Resources */,
 			);
@@ -211,7 +249,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				879EA3BF1FB1CC4700D89E71 /* LandingViewController.swift in Sources */,
+				879EA3DE1FB1D41300D89E71 /* TwitterApiConstants.swift in Sources */,
+				8748607F1FB1E58A00A6FF20 /* TwitterApiRequests.swift in Sources */,
+				874860811FB1E67200A6FF20 /* StringExtensions.swift in Sources */,
+				8748607D1FB1D6F600A6FF20 /* OAuthAccessToken.swift in Sources */,
+				8748607B1FB1D6B900A6FF20 /* LandingViewModel.swift in Sources */,
 				879EA3BD1FB1CC4700D89E71 /* AppDelegate.swift in Sources */,
+				874860841FB1E93800A6FF20 /* NetworkAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,14 +268,6 @@
 				879EA3C11FB1CC4700D89E71 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		879EA3C51FB1CC4700D89E71 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				879EA3C61FB1CC4700D89E71 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -354,7 +390,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = TwitterClient/Info.plist;
+				INFOPLIST_FILE = TwitterClient/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxence-ho.TwitterClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,7 +409,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = TwitterClient/Info.plist;
+				INFOPLIST_FILE = TwitterClient/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxence-ho.TwitterClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";

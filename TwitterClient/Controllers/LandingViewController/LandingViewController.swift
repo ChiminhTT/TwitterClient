@@ -10,20 +10,50 @@ import UIKit
 
 class LandingViewController: UIViewController
 {
+  
+  // MARK: - Instance variables
+  var model = LandingViewModel()
 
   // MARK: - Controller Life cycle
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    self.fetchOAuthAccessToken()
   }
 
   override func didReceiveMemoryWarning()
   {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
-
+  // MARK: - Helper functions
+  func fetchOAuthAccessToken()
+  {
+    requestOAuthAccessToken { (optAccessToken, optError) in
+      guard optError == nil else
+      {
+        self.displayNetworkErrorAlert()
+        return
+      }
+      
+      if let accessToken = optAccessToken
+      {
+        self.model.accessToken = OAuthAccessToken(value: accessToken)
+        self.performSegue(withIdentifier: "testSegue", sender: nil)
+      }
+    }
+  }
+  
+  func displayNetworkErrorAlert()
+  {
+    DispatchQueue.main.async
+    {
+        self.present(
+          buildAlertNetworkError(retryHandler: self.fetchOAuthAccessToken),
+          animated: true
+        )
+    }
+  }
+  
 }
 

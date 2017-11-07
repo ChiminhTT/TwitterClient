@@ -6,4 +6,7 @@
 //  Copyright © 2017 maxence_ho. All rights reserved.
 //
 
-import Foundation
+struct LandingViewModel
+{
+  var accessToken: OAuthAccessToken?
+}

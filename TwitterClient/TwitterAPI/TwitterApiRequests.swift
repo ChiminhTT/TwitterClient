@@ -34,7 +34,7 @@ func requestOAuthAccessToken(
           if let access_token = json["access_token"].string {
             completionHandler(access_token, nil)
           } else {
-            print(json["access_token"].error!)
+            completionHandler(nil, json["access_token"].error!)
           }
         }
       case .failure(let error):

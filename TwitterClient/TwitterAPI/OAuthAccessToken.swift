@@ -6,4 +6,8 @@
 //  Copyright © 2017 maxence_ho. All rights reserved.
 //
 
-import Foundation
+struct OAuthAccessToken
+{
+  let value: String
+}
+
