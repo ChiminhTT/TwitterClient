@@ -18,11 +18,12 @@ struct TwitterApiConstants
   static let accessTokenAuthorizationHeader =
     (TwitterApiConstants.consumerKey + ":" + TwitterApiConstants.consumerSecret)
       .toBase64()
-
 }
 
 struct TwitterApiEndpoints
 {
   static let oauthEndpoint =
     "/oauth2/token/"
+  static let searchQueryEndpoint =
+    "https://api.twitter.com/1.1/statuses/user_timeline.json?"
 }

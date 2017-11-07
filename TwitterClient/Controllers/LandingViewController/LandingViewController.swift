@@ -25,21 +25,23 @@ class LandingViewController: UIViewController
   {
     super.didReceiveMemoryWarning()
   }
+  
+}
 
-  // MARK: - Helper functions
+// MARK: - Fetch Model Functions
+extension LandingViewController
+{
+
   func fetchOAuthAccessToken()
   {
-    requestOAuthAccessToken { (optAccessToken, optError) in
-      guard optError == nil else
+    requestOAuthAccessToken { resp in
+      switch resp
       {
+      case .Ok(let accessToken):
+        self.model.accessToken = accessToken
+        self.performSegue(withIdentifier: "initSegue", sender: nil)
+      case .Err(_):
         self.displayNetworkErrorAlert()
-        return
-      }
-      
-      if let accessToken = optAccessToken
-      {
-        self.model.accessToken = OAuthAccessToken(value: accessToken)
-        self.performSegue(withIdentifier: "testSegue", sender: nil)
       }
     }
   }
@@ -48,12 +50,30 @@ class LandingViewController: UIViewController
   {
     DispatchQueue.main.async
     {
-        self.present(
-          buildAlertNetworkError(retryHandler: self.fetchOAuthAccessToken),
-          animated: true
-        )
+      self.present(
+        buildAlertNetworkError(retryHandler: self.fetchOAuthAccessToken),
+        animated: true
+      )
     }
   }
   
+}
+
+// MARK: - Navigation
+extension LandingViewController
+{
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    guard let accessToken = self.model.accessToken else { return }
+    // Create a variable that you want to send
+    let tweetTableViewModel =
+      TweetTableViewModel(accessToken: accessToken, tweets: [])
+    
+    let navVC = segue.destination as? UINavigationController
+    let tweetTableVC = navVC?.viewControllers.first as! TweetTableViewController
+    tweetTableVC.model = tweetTableViewModel
+  }
+
 }
 

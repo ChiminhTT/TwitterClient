@@ -19,11 +19,13 @@ enum QueryArg
 {
   case ScreenName(String)
   case Count(Int)
+  case TweetMode(String)
   case And
 }
 
 extension QueryArg
 {
+  
   func eval() -> String
   {
     switch self
@@ -32,8 +34,11 @@ extension QueryArg
       return "screen_name=" + name
     case .Count(let count):
       return "count=" + String(count)
+    case .TweetMode(let tweetMode):
+      return "tweet_mode=" + tweetMode
     case .And:
       return "&"
     }
   }
+  
 }
