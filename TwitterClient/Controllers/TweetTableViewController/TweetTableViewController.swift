@@ -84,7 +84,7 @@ extension TweetTableViewController
     DispatchQueue.main.async
     {
         self.present(
-          buildAlertNetworkError(retryHandler: {}),
+          buildAlertNetworkError(actionLabel: "Ok", actionHandler: {}),
           animated: true
         )
     }

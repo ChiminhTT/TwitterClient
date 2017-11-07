@@ -51,7 +51,8 @@ extension LandingViewController
     DispatchQueue.main.async
     {
       self.present(
-        buildAlertNetworkError(retryHandler: self.fetchOAuthAccessToken),
+        buildAlertNetworkError(actionLabel: "Retry",
+                               actionHandler: self.fetchOAuthAccessToken),
         animated: true
       )
     }

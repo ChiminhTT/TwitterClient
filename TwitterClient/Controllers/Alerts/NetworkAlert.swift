@@ -9,7 +9,8 @@
 import UIKit
 
 func buildAlertNetworkError(
-  retryHandler: @escaping () -> ()
+  actionLabel: String,
+  actionHandler: @escaping () -> ()
 ) -> UIAlertController
 {
   let alertMsg =
@@ -17,9 +18,9 @@ func buildAlertNetworkError(
   let alert = UIAlertController(title: "Whoops...",
                                 message: alertMsg,
                                 preferredStyle: .alert)
-  let action = UIAlertAction(title: "Retry",
+  let action = UIAlertAction(title: actionLabel,
                              style: .default,
-                             handler: {(alert: UIAlertAction!) in retryHandler()})
+                             handler: {(alert: UIAlertAction!) in actionHandler()})
   alert.addAction(action)
   return alert
 }
