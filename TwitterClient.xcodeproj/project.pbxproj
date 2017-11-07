@@ -132,6 +132,7 @@
 			children = (
 				879EA3BC1FB1CC4700D89E71 /* AppDelegate.swift */,
 				879EA3CE1FB1CD9C00D89E71 /* Controllers */,
+				87E4E2FA1FB25E98000E7801 /* DataStruct */,
 				879EA3D11FB1CDC000D89E71 /* Models */,
 				879EA3D01FB1CDB500D89E71 /* SupportingFiles */,
 				879EA3D21FB1CDC600D89E71 /* TwitterAPI */,
@@ -163,8 +164,6 @@
 			children = (
 				879EA3C31FB1CC4700D89E71 /* Assets.xcassets */,
 				879EA3C81FB1CC4700D89E71 /* Info.plist */,
-				874860801FB1E67200A6FF20 /* StringExtensions.swift */,
-				87FDD9441FB223A000CCD1A9 /* Result.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -197,6 +196,15 @@
 				879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		87E4E2FA1FB25E98000E7801 /* DataStruct */ = {
+			isa = PBXGroup;
+			children = (
+				87FDD9441FB223A000CCD1A9 /* Result.swift */,
+				874860801FB1E67200A6FF20 /* StringExtensions.swift */,
+			);
+			path = DataStruct;
 			sourceTree = "<group>";
 		};
 		87FDD93F1FB2002D00CCD1A9 /* TweetTableViewModels */ = {

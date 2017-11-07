@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="191" y="116"/>
         </scene>
-        <!--IBP-Twitter Client-->
+        <!--IBP - Twitter Client-->
         <scene sceneID="LaY-Kp-Upb">
             <objects>
                 <tableViewController id="GGT-AX-ftV" customClass="TweetTableViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,13 @@
                             <outlet property="delegate" destination="GGT-AX-ftV" id="lkF-re-Pew"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="IBP-Twitter Client" id="a74-Al-Njf"/>
+                    <navigationItem key="navigationItem" title="IBP - Twitter Client" id="D5P-To-FID">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="boz-Sf-FiY">
+                            <connections>
+                                <action selector="refreshTweets:" destination="GGT-AX-ftV" id="hOm-IZ-ULi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="vN0-ld-hkt" kind="showDetail" identifier="testSegue" id="S4J-zw-UdV"/>
                     </connections>
@@ -115,7 +121,6 @@
         <!--Navigation Controller-->
         <scene sceneID="0ko-z8-a9P">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvr-li-ZLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yU6-9H-W8s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b7D-PO-2zn">
@@ -127,6 +132,7 @@
                         <segue destination="GGT-AX-ftV" kind="relationship" relationship="rootViewController" id="WNp-pK-bbk"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvr-li-ZLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041.5999999999999" y="115.14242878560721"/>
         </scene>

@@ -31,9 +31,9 @@ func requestOAuthAccessToken(
         if let data = response.data
         {
           let json = JSON(data: data)
-          if let access_token = json["access_token"].string
+          if let accessToken = json["access_token"].string
           {
-            completionHandler(.Ok(OAuthAccessToken(value: access_token)))
+            completionHandler(.Ok(OAuthAccessToken(value: accessToken)))
           }
           else
           {

@@ -24,6 +24,16 @@ class TweetTableViewController: UITableViewController
     tweets: []
   )
   
+  // MARK: - Connectors
+  @IBAction func refreshTweets(_ sender: Any)
+  {
+    self.fetchTweets(
+      from: Parameters.authorName,
+      count: Parameters.tweetCount,
+      tweetMode: Parameters.tweetMode
+    )
+  }
+  
   // MARK: - Controller life cycle functions
   override func viewDidLoad()
   {
@@ -53,7 +63,7 @@ extension TweetTableViewController
       count: count,
       tweetMode: tweetMode,
       with: self.model.accessToken
-    ){ resp in
+    ) { resp in
       switch resp
       {
       case .Ok(let tweets):

@@ -13,7 +13,7 @@ class LandingViewController: UIViewController
   
   // MARK: - Instance variables
   var model = LandingViewModel()
-
+  
   // MARK: - Controller Life cycle
   override func viewDidLoad()
   {
@@ -66,7 +66,7 @@ extension LandingViewController
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
     guard let accessToken = self.model.accessToken else { return }
-    // Create a variable that you want to send
+
     let tweetTableViewModel =
       TweetTableViewModel(accessToken: accessToken, tweets: [])
     
