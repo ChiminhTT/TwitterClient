@@ -12,7 +12,26 @@
 		879EA3C21FB1CC4700D89E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879EA3C01FB1CC4700D89E71 /* Main.storyboard */; };
 		879EA3C41FB1CC4700D89E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879EA3C31FB1CC4700D89E71 /* Assets.xcassets */; };
 		879EA3C71FB1CC4700D89E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879EA3C51FB1CC4700D89E71 /* LaunchScreen.storyboard */; };
+		879EA3D81FB1D2D800D89E71 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */; };
+		879EA3D91FB1D2D800D89E71 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		879EA3DA1FB1D2D800D89E71 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */; };
+		879EA3DB1FB1D2D800D89E71 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		879EA3DC1FB1D2D800D89E71 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				879EA3D91FB1D2D800D89E71 /* SwiftyJSON.framework in Embed Frameworks */,
+				879EA3DB1FB1D2D800D89E71 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		879EA3B91FB1CC4700D89E71 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +41,8 @@
 		879EA3C31FB1CC4700D89E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879EA3C61FB1CC4700D89E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		879EA3C81FB1CC4700D89E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
+		879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879EA3D81FB1D2D800D89E71 /* SwiftyJSON.framework in Frameworks */,
+				879EA3DA1FB1D2D800D89E71 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +61,9 @@
 		879EA3B01FB1CC4700D89E71 = {
 			isa = PBXGroup;
 			children = (
-				879EA3BB1FB1CC4700D89E71 /* TwitterClient */,
+				879EA3D31FB1D2BB00D89E71 /* Frameworks */,
 				879EA3BA1FB1CC4700D89E71 /* Products */,
+				879EA3BB1FB1CC4700D89E71 /* TwitterClient */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +128,15 @@
 			path = TwitterAPI;
 			sourceTree = "<group>";
 		};
+		879EA3D31FB1D2BB00D89E71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				879EA3D61FB1D2CE00D89E71 /* SwiftyJSON.framework */,
+				879EA3D41FB1D2CA00D89E71 /* Alamofire.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,6 +147,7 @@
 				879EA3B51FB1CC4700D89E71 /* Sources */,
 				879EA3B61FB1CC4700D89E71 /* Frameworks */,
 				879EA3B71FB1CC4700D89E71 /* Resources */,
+				879EA3DC1FB1D2D800D89E71 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +350,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37L53VP24Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TwitterClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxence-ho.TwitterClient";
@@ -331,6 +369,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37L53VP24Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TwitterClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.maxence-ho.TwitterClient";
