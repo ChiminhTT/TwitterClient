@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="qsT-vO-A6B" customClass="ReTweetView" customModule="TwitterClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VjN-qx-66r" userLabel="Banner ImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                    <color key="backgroundColor" name="WeldonBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="VIi-RR-JPq"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGX-ho-R5T" userLabel="Author Name">
+                    <rect key="frame" x="94" y="133" width="88.5" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="8K7-Yi-lmk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@author_name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MH-m1-1AN" userLabel="Author ScreenName">
+                    <rect key="frame" x="95" y="150" width="84" height="14.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14.5" id="PNx-aO-bdU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" name="WeldonBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WS0-gc-oS0" userLabel="Author Icon">
+                    <rect key="frame" x="16" y="110" width="70" height="70"/>
+                    <color key="backgroundColor" name="MaastrichtBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="0kU-DP-kBa"/>
+                        <constraint firstAttribute="height" constant="70" id="5by-nj-SRq"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="762-TI-r4D" userLabel="Tweet Text">
+                    <rect key="frame" x="16" y="187" width="343" height="107.5"/>
+                    <string key="text">Tweet random un peu plus long que la moyenne pour montrer que j’ai 280 caractères comme tout le monde sur twitter, encore plus de place pour dire des bétises pour les abrutis. Heuresement je suis supérieur et plus intelligent donc moi ça va par contre le rond c’est laid, unlucky.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="RetweetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Hea-WH-2Tv">
+                    <rect key="frame" x="16" y="302" width="15" height="15"/>
+                    <color key="tintColor" name="WeldonBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Gc0-a9-FFt"/>
+                        <constraint firstAttribute="width" constant="15" id="a3u-VF-UTg"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name retweeted" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-Ul-YY8">
+                    <rect key="frame" x="35" y="302" width="115" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="FaI-gM-Tkm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" name="WeldonBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awJ-OV-PDd" userLabel="line">
+                    <rect key="frame" x="16" y="355" width="343" height="1"/>
+                    <color key="backgroundColor" name="MaastrichtBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="mnd-Gc-Od9"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lh3-sY-5XV" userLabel="line">
+                    <rect key="frame" x="16" y="388" width="343" height="1"/>
+                    <color key="backgroundColor" name="MaastrichtBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="H9V-h6-IlV"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh8-3k-XwD" userLabel="Date">
+                    <rect key="frame" x="16" y="332" width="343" height="16"/>
+                    <viewLayoutGuide key="safeArea" id="ubv-7C-EpZ"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" name="WeldonBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7W-gU-v8Y">
+                    <rect key="frame" x="16" y="362" width="15" height="20"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ip3-Ou-lHM">
+                    <rect key="frame" x="36" y="364" width="56" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" name="WeldonBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hashtags list" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxe-s7-8Pe">
+                    <rect key="frame" x="16" y="397" width="343" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" name="WeldonBlue"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="OuterSpacegrey"/>
+            <constraints>
+                <constraint firstItem="Hh8-3k-XwD" firstAttribute="top" secondItem="bhE-Ul-YY8" secondAttribute="bottom" constant="15" id="3RT-Rd-F5Y"/>
+                <constraint firstItem="Hea-WH-2Tv" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="3g9-4p-ld9"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="trailing" secondItem="lh3-sY-5XV" secondAttribute="trailing" constant="16" id="43e-Yh-jig"/>
+                <constraint firstItem="Hh8-3k-XwD" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="5g8-OD-WXd"/>
+                <constraint firstItem="awJ-OV-PDd" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="8oG-Qj-8EM"/>
+                <constraint firstItem="Hea-WH-2Tv" firstAttribute="top" secondItem="762-TI-r4D" secondAttribute="bottom" constant="7.5" id="BbP-fW-hrV"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="trailing" secondItem="VjN-qx-66r" secondAttribute="trailing" id="DZP-jD-Op5"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="trailing" secondItem="awJ-OV-PDd" secondAttribute="trailing" constant="16" id="E7i-6p-czR"/>
+                <constraint firstItem="bhE-Ul-YY8" firstAttribute="leading" secondItem="Hea-WH-2Tv" secondAttribute="trailing" constant="4" id="Eoc-pk-uFX"/>
+                <constraint firstItem="WS0-gc-oS0" firstAttribute="top" secondItem="VjN-qx-66r" secondAttribute="bottom" constant="-15" id="H5n-1A-Ijd"/>
+                <constraint firstItem="lh3-sY-5XV" firstAttribute="top" secondItem="Ip3-Ou-lHM" secondAttribute="bottom" constant="8" id="I8v-bm-FBC"/>
+                <constraint firstItem="Mxe-s7-8Pe" firstAttribute="top" secondItem="lh3-sY-5XV" secondAttribute="bottom" constant="8" id="JBN-uq-UGe"/>
+                <constraint firstItem="WS0-gc-oS0" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="KMF-vS-OQ3"/>
+                <constraint firstItem="VjN-qx-66r" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" id="Lvs-gJ-8wh"/>
+                <constraint firstItem="4MH-m1-1AN" firstAttribute="leading" secondItem="WS0-gc-oS0" secondAttribute="trailing" constant="9" id="OpI-S3-YSX"/>
+                <constraint firstItem="yGX-ho-R5T" firstAttribute="top" secondItem="VjN-qx-66r" secondAttribute="bottom" constant="8" id="Qjq-cV-ARo"/>
+                <constraint firstItem="Mxe-s7-8Pe" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="RwN-sM-CgF"/>
+                <constraint firstItem="bhE-Ul-YY8" firstAttribute="top" secondItem="762-TI-r4D" secondAttribute="bottom" constant="7.5" id="SvJ-aD-xVu"/>
+                <constraint firstItem="lh3-sY-5XV" firstAttribute="top" secondItem="G7W-gU-v8Y" secondAttribute="bottom" constant="6" id="UIx-CP-ZUM"/>
+                <constraint firstItem="762-TI-r4D" firstAttribute="top" secondItem="WS0-gc-oS0" secondAttribute="bottom" constant="7" id="WEW-Cu-ejo"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="top" secondItem="VjN-qx-66r" secondAttribute="top" constant="20" id="YPf-yj-Cdz"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="trailing" secondItem="Hh8-3k-XwD" secondAttribute="trailing" constant="16" id="Z6y-Zf-kw8"/>
+                <constraint firstItem="4MH-m1-1AN" firstAttribute="top" secondItem="yGX-ho-R5T" secondAttribute="bottom" id="d8P-PG-cIj"/>
+                <constraint firstItem="awJ-OV-PDd" firstAttribute="top" secondItem="Hh8-3k-XwD" secondAttribute="bottom" constant="7" id="hMG-lO-BSe"/>
+                <constraint firstItem="G7W-gU-v8Y" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="k8e-O7-41G"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="trailing" secondItem="Mxe-s7-8Pe" secondAttribute="trailing" constant="16" id="kTt-dK-KyH"/>
+                <constraint firstItem="762-TI-r4D" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="rQU-4I-1ln"/>
+                <constraint firstItem="Drv-eY-dGr" firstAttribute="trailing" secondItem="762-TI-r4D" secondAttribute="trailing" constant="16" id="ttV-7L-PQu"/>
+                <constraint firstItem="lh3-sY-5XV" firstAttribute="leading" secondItem="Drv-eY-dGr" secondAttribute="leading" constant="16" id="ult-vX-rSR"/>
+                <constraint firstItem="yGX-ho-R5T" firstAttribute="leading" secondItem="WS0-gc-oS0" secondAttribute="trailing" constant="8" id="v26-85-4Jf"/>
+                <constraint firstItem="Ip3-Ou-lHM" firstAttribute="top" secondItem="awJ-OV-PDd" secondAttribute="bottom" constant="8" id="vVb-YC-iWU"/>
+                <constraint firstItem="G7W-gU-v8Y" firstAttribute="top" secondItem="awJ-OV-PDd" secondAttribute="bottom" constant="6" id="y8C-14-9EW"/>
+                <constraint firstItem="Ip3-Ou-lHM" firstAttribute="leading" secondItem="G7W-gU-v8Y" secondAttribute="trailing" constant="5" id="zNz-Vn-3vR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Drv-eY-dGr"/>
+            <connections>
+                <outlet property="authorNameLabel" destination="yGX-ho-R5T" id="1H1-l6-0Ir"/>
+                <outlet property="authorScreenNameLabel" destination="4MH-m1-1AN" id="WKR-4Q-CsJ"/>
+                <outlet property="bannerImageView" destination="VjN-qx-66r" id="OXl-b5-tYO"/>
+                <outlet property="dateLabel" destination="Hh8-3k-XwD" id="Iwe-uV-0QJ"/>
+                <outlet property="hashtagListLabel" destination="Mxe-s7-8Pe" id="3ut-DN-NAP"/>
+                <outlet property="profilePictureImageView" destination="WS0-gc-oS0" id="tU5-kU-hsn"/>
+                <outlet property="retweetCountLabel" destination="G7W-gU-v8Y" id="Z6t-nW-elD"/>
+                <outlet property="retweetLabel" destination="bhE-Ul-YY8" id="Jvz-85-CEi"/>
+                <outlet property="tweetTextLabel" destination="762-TI-r4D" id="HVe-6p-Ipe"/>
+            </connections>
+            <point key="canvasLocation" x="-219.5" y="-38.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="RetweetIcon" width="256" height="256"/>
+        <namedColor name="MaastrichtBlue">
+            <color red="0.0" green="0.10999999940000001" blue="0.15000000599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="OuterSpacegrey">
+            <color red="0.25" green="0.31000000239999997" blue="0.3600000143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WeldonBlue">
+            <color red="0.46999999879999999" green="0.61000001429999995" blue="0.67000001669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

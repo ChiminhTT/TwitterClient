@@ -20,19 +20,9 @@ class BasicTweetCell: UITableViewCell
   @IBOutlet weak var authorIconImage: UIImageView!
   @IBOutlet weak var tweetTextLabel: UILabel!
   @IBOutlet weak var retweetCountLabel: UILabel!
-  
+  @IBOutlet weak var screenNameLabel: UILabel!
   
   // MARK: - Override functions
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?)
-  {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-  }
-  
-  required init(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)!
-  }
-  
   override func awakeFromNib()
   {
     super.awakeFromNib()
@@ -54,22 +44,16 @@ class BasicTweetCell: UITableViewCell
   {
     self.tweet = optTweet
     guard let tweet = self.tweet else { return }
+    
     self.tweetTextLabel.text = tweet.text
-    self.authorNameLabel.text = "@" + tweet.authorName
+    self.authorNameLabel.text = tweet.user.authorName
+    self.screenNameLabel.text = "@\(tweet.user.screenName)"
     self.retweetCountLabel.text = String(tweet.retweetCount)
-    if let profileImageURL = tweet.profileImageURL
+    if let profileImageURL = tweet.user.profileImageURL
     {
       downloadTask = self.authorIconImage.loadImage(url: profileImageURL)
-      transformImageToCircle(on: self.authorIconImage)
+      self.authorIconImage.asCircle()
     }
   }
   
-  func transformImageToCircle(on imageView: UIImageView)
-  {
-    imageView.layer.borderWidth = 0.5
-    imageView.layer.masksToBounds = false
-    imageView.layer.borderColor = UIColor.black.cgColor
-    imageView.layer.cornerRadius = self.authorIconImage.frame.height/2
-    imageView.clipsToBounds = true
-  }
 }
