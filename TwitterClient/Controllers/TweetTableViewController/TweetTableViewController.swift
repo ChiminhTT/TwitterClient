@@ -15,6 +15,39 @@ struct Parameters
   static let tweetMode = "extended"
 }
 
+struct TableViewCellIdentifiers
+{
+  static let basicTweetCell = "BasicTweetCell"
+  static let reTweetCell = "ReTweetCell"
+  static let replyTweetCell = "ReplyTweetCell"
+}
+
+let basicTweetCellNib =
+  UINib(nibName: TableViewCellIdentifiers.basicTweetCell,
+        bundle: nil)
+let reTweetCellNib =
+  UINib(nibName: TableViewCellIdentifiers.reTweetCell,
+        bundle: nil)
+let replyTweetCellNib =
+  UINib(nibName: TableViewCellIdentifiers.replyTweetCell,
+        bundle: nil)
+
+func initializeTableView(on vc: TweetTableViewController)
+{
+  // Setup cell auto resizing
+  vc.tableView.rowHeight = UITableViewAutomaticDimension
+  vc.tableView.estimatedRowHeight = 100
+  // Register cells
+  vc.tableView.register(basicTweetCellNib,
+                        forCellReuseIdentifier: TableViewCellIdentifiers.basicTweetCell)
+  vc.tableView.register(reTweetCellNib,
+                        forCellReuseIdentifier: TableViewCellIdentifiers.reTweetCell)
+  vc.tableView.register(replyTweetCellNib,
+                        forCellReuseIdentifier: TableViewCellIdentifiers.replyTweetCell)
+  // Remove empty cells at table footer
+  vc.tableView.tableFooterView = UIView()
+}
+
 class TweetTableViewController: UITableViewController
 {
 
@@ -38,6 +71,8 @@ class TweetTableViewController: UITableViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
+
+    initializeTableView(on: self)
     self.fetchTweets(
       from: Parameters.authorName,
       count: Parameters.tweetCount,
@@ -68,11 +103,7 @@ extension TweetTableViewController
       {
       case .Ok(let tweets):
         self.model.tweets = tweets
-        for tweet in self.model.tweets
-        {
-          print(tweet)
-          print("================")
-        }
+        DispatchQueue.main.async { self.tableView.reloadData() }
       case .Err(_):
         self.displayNetworkErrorAlert()
       }
@@ -96,15 +127,49 @@ extension TweetTableViewController
 extension TweetTableViewController
 {
   
-  override func numberOfSections(in tableView: UITableView) -> Int
-  {
-    return 0
-  }
-  
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int
   {
-    return 0
+    return self.model.tweets.count
+  }
+  
+  override func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell
+  {
+    let tweet = self.model.tweets[indexPath.row]
+    if tweet is ReTweet
+    {
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: TableViewCellIdentifiers.reTweetCell,
+        for: indexPath
+      ) as! ReTweetCell
+      cell.setCellContent(optTweet: (tweet as! ReTweet))
+      return cell
+    }
+    else if tweet is ReplyTweet
+    {
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: TableViewCellIdentifiers.replyTweetCell,
+        for: indexPath
+      ) as! ReplyTweetCell
+      cell.setCellContent(optTweet: (tweet as! ReplyTweet))
+      return cell
+    }
+    else // Basic Tweet
+    {
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: TableViewCellIdentifiers.basicTweetCell,
+        for: indexPath
+      ) as! BasicTweetCell
+      cell.setCellContent(optTweet: (tweet as! BasicTweet))
+      return cell
+    }
+  }
+  
+  override func tableView(_ tableView: UITableView,
+                          didSelectRowAt indexPath: IndexPath)
+  {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
 }

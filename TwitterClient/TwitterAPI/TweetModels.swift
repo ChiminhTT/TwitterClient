@@ -68,6 +68,8 @@ struct ReTweet: Tweet
   let hashtag: [Hashtag]
   
   let originalUserName: String
+  let originalProfileBannerURL: URL?
+  let originalProfileImageURL: URL?
 }
 extension ReTweet
 {
@@ -91,6 +93,10 @@ extension ReTweet
     
     self.originalUserName =
       json["retweeted_status"]["user"]["name"].stringValue
+    self.originalProfileBannerURL =
+      URL(string: json["retweeted_status"]["user"]["profile_banner_url"].stringValue)
+    self.originalProfileImageURL =
+      URL(string: json["retweeted_status"]["user"]["profile_image_url_https"].stringValue)
   }
 }
 
