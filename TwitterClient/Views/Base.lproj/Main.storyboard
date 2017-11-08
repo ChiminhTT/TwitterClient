@@ -92,27 +92,33 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="vN0-ld-hkt" kind="showDetail" identifier="testSegue" id="S4J-zw-UdV"/>
+                        <segue destination="wNM-T9-GH1" kind="show" identifier="tweetDetailSegue" id="xW9-df-S28"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6G-B5-gXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860" y="115"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Om0-se-NC1">
+        <!--Tweet-->
+        <scene sceneID="kHx-xa-2sp">
             <objects>
-                <viewController id="vN0-ld-hkt" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xyg-gD-G5V">
+                <viewController id="wNM-T9-GH1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vsq-Xy-X5X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Oza-Bg-3hx"/>
+                        <color key="backgroundColor" name="OuterSpacegrey"/>
+                        <viewLayoutGuide key="safeArea" id="wEK-Nk-Wyj"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Tweet" id="svv-ua-kRV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="iFr-pb-EFN"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="yU6-9H-W8s" kind="show" id="udh-jx-0zv"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tny-s1-kGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IW7-kJ-ACd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="116"/>
+            <point key="canvasLocation" x="2940" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0ko-z8-a9P">
@@ -149,5 +155,11 @@
         <namedColor name="OuterSpacegrey">
             <color red="0.25" green="0.31000000238418579" blue="0.36000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="OuterSpacegrey">
+            <color red="0.25" green="0.31000000238418579" blue="0.36000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="udh-jx-0zv"/>
+    </inferredMetricsTieBreakers>
 </document>

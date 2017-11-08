@@ -170,6 +170,7 @@ extension TweetTableViewController
                           didSelectRowAt indexPath: IndexPath)
   {
     tableView.deselectRow(at: indexPath, animated: true)
+    self.performSegue(withIdentifier: "tweetDetailSegue", sender: nil)
   }
   
 }
