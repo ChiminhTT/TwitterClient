@@ -56,11 +56,11 @@ func requestTweets(
   let getHeaders: HTTPHeaders = [
     "Authorization": "Bearer " + accessToken.value,
   ]
-  let searchQuery = buildSearcQuery(.ScreenName(authorName),
-                                    .And,
-                                    .Count(count),
-                                    .And,
-                                    .TweetMode(tweetMode))
+  let searchQuery = buildSearchQuery(.ScreenName(authorName),
+                                     .And,
+                                     .Count(count),
+                                     .And,
+                                     .TweetMode(tweetMode))
   
   Alamofire
     .request(TwitterApiEndpoints.searchQueryEndpoint + searchQuery,
@@ -78,7 +78,7 @@ func requestTweets(
   }
 }
 
-func builsTweets(from json: JSON) -> [Tweet]
+fileprivate func builsTweets(from json: JSON) -> [Tweet]
 {
   var ret: [Tweet] = []
   for (_, subJson): (String, JSON) in json

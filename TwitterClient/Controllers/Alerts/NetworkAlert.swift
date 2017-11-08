@@ -8,10 +8,8 @@
 
 import UIKit
 
-func buildAlertNetworkError(
-  actionLabel: String,
-  actionHandler: @escaping () -> ()
-) -> UIAlertController
+func buildAlertNetworkError(actionLabel: String,
+                            actionHandler: @escaping () -> ()) -> UIAlertController
 {
   let alertMsg =
     "There was an error accessing the Twitter API. Please try again."

@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPX-bb-Hpx" userLabel="Author Name">
-                        <rect key="frame" x="66" y="8" width="94" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <rect key="frame" x="66" y="8" width="88.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,23 +33,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pN-fP-8wc" userLabel="Tweet Text">
-                        <rect key="frame" x="66" y="47" width="301" height="28"/>
+                        <rect key="frame" x="66" y="46" width="301" height="29"/>
                         <string key="text">Tweet random un peu plus long que la moyenne pour montrer que j’ai 280 caractères comme tout le monde sur twitter, encore plus de place pour dire des bétises pour les abrutis. Heuresement je suis supérieur et plus intelligent donc moi ça va par contre le rond c’est laid, unlucky.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="RetweetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Svy-0q-Hgc">
-                        <rect key="frame" x="331" y="76.5" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="0st-Jm-5hL"/>
-                            <constraint firstAttribute="width" constant="20" id="3Eo-GB-pMb"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replying to @Interlocutor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Xe-xVl">
-                        <rect key="frame" x="66" y="28" width="301" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" name="WeldonBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-Q3-dlJ" userLabel="RetweetCount">
@@ -62,19 +49,41 @@
                         <color key="textColor" red="0.28805691519999999" green="0.50729375030000001" blue="0.82913626269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="RetweetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Svy-0q-Hgc">
+                        <rect key="frame" x="331" y="76.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="0st-Jm-5hL"/>
+                            <constraint firstAttribute="width" constant="20" id="3Eo-GB-pMb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replying to @Interlocutor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-Xe-xVl">
+                        <rect key="frame" x="66" y="27" width="301" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" name="WeldonBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@author_name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pu-t6-HWp" userLabel="Author ScreenName">
+                        <rect key="frame" x="156.5" y="8" width="84" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" name="WeldonBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="5pu-t6-HWp" firstAttribute="leading" secondItem="DPX-bb-Hpx" secondAttribute="trailing" constant="2" id="3z7-4O-ZeJ"/>
                     <constraint firstItem="DPX-bb-Hpx" firstAttribute="top" secondItem="N9h-Vf-P4B" secondAttribute="top" constant="8" id="4wk-X5-4dX"/>
                     <constraint firstItem="DPX-bb-Hpx" firstAttribute="leading" secondItem="N9h-Vf-P4B" secondAttribute="leading" constant="66" id="8EA-L1-PjV"/>
                     <constraint firstAttribute="trailing" secondItem="RQK-Xe-xVl" secondAttribute="trailing" constant="8" id="8aS-tc-cp8"/>
                     <constraint firstItem="Xf9-1P-l62" firstAttribute="top" secondItem="N9h-Vf-P4B" secondAttribute="top" constant="18" id="Ats-4Y-w3w"/>
                     <constraint firstItem="RQK-Xe-xVl" firstAttribute="leading" secondItem="N9h-Vf-P4B" secondAttribute="leading" constant="66" id="DD8-Wq-do6"/>
                     <constraint firstAttribute="bottom" secondItem="Svy-0q-Hgc" secondAttribute="bottom" constant="3" id="Dpc-fb-dgo"/>
+                    <constraint firstItem="RQK-Xe-xVl" firstAttribute="top" secondItem="5pu-t6-HWp" secondAttribute="bottom" constant="2" id="Lnf-4v-WHa"/>
                     <constraint firstAttribute="bottom" secondItem="7pN-fP-8wc" secondAttribute="bottom" constant="24.5" id="diw-v5-ZY8"/>
                     <constraint firstItem="GQ5-Q3-dlJ" firstAttribute="leading" secondItem="Svy-0q-Hgc" secondAttribute="trailing" constant="1" id="dwx-vK-3rd"/>
                     <constraint firstItem="Xf9-1P-l62" firstAttribute="leading" secondItem="N9h-Vf-P4B" secondAttribute="leading" constant="10" id="gP5-qF-fmZ"/>
                     <constraint firstAttribute="bottom" secondItem="GQ5-Q3-dlJ" secondAttribute="bottom" constant="3" id="kFc-9i-rRc"/>
                     <constraint firstAttribute="trailing" secondItem="GQ5-Q3-dlJ" secondAttribute="trailing" constant="3" id="oDD-vi-lEe"/>
+                    <constraint firstItem="5pu-t6-HWp" firstAttribute="top" secondItem="N9h-Vf-P4B" secondAttribute="top" constant="8" id="rYy-go-jEQ"/>
                     <constraint firstItem="7pN-fP-8wc" firstAttribute="top" secondItem="RQK-Xe-xVl" secondAttribute="bottom" constant="2" id="s2X-cv-N1h"/>
                     <constraint firstItem="RQK-Xe-xVl" firstAttribute="top" secondItem="DPX-bb-Hpx" secondAttribute="bottom" constant="2" id="wHS-LY-lRW"/>
                 </constraints>
@@ -89,6 +98,7 @@
                 <outlet property="authorNameLabel" destination="DPX-bb-Hpx" id="J25-oq-pRe"/>
                 <outlet property="replyLabel" destination="RQK-Xe-xVl" id="ed9-2k-UEo"/>
                 <outlet property="retweetCountLabel" destination="GQ5-Q3-dlJ" id="NiQ-nI-zwc"/>
+                <outlet property="screenNameLabel" destination="5pu-t6-HWp" id="xVn-Hx-Xx9"/>
                 <outlet property="tweetTextLabel" destination="7pN-fP-8wc" id="vh8-bx-HlU"/>
             </connections>
             <point key="canvasLocation" x="-237.5" y="-19"/>

@@ -8,7 +8,7 @@
 
 typealias SearchQuery = String
 
-func buildSearcQuery(_ queryArgs: QueryArg...) -> SearchQuery
+func buildSearchQuery(_ queryArgs: QueryArg...) -> SearchQuery
 {
   let str = queryArgs.map({ $0.eval() })
                      .reduce("", +)

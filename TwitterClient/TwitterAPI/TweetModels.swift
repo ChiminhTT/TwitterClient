@@ -13,12 +13,10 @@ typealias Hashtag = String
 
 protocol Tweet: Codable
 {
-  var authorName: String { get }
   var text: String { get }
   var creationDate: Date { get }
   var retweetCount: Int { get }
-  var profileBannerURL: URL? { get }
-  var profileImageURL : URL? {get}
+  var user: TwitterUser { get }
   var hashtag: [Hashtag] { get }
   
   init(json: JSON)
@@ -27,30 +25,24 @@ protocol Tweet: Codable
 
 struct BasicTweet: Tweet
 {
-  let authorName: String
   let text: String
   let creationDate: Date
   let retweetCount: Int
-  let profileBannerURL: URL?
-  let profileImageURL: URL?
+  let user: TwitterUser
   let hashtag: [Hashtag]
 }
 extension BasicTweet
 {
   init(json: JSON)
   {
-    self.authorName =
-      json["user"]["name"].stringValue
     self.text =
       json["text"].string ?? json["full_text"].stringValue
     self.creationDate =
       getDate(isoDate: json["created_at"].stringValue)
     self.retweetCount =
       json["retweet_count"].intValue
-    self.profileBannerURL =
-      URL(string: json["user"]["profile_banner_url"].stringValue)
-    self.profileImageURL =
-      URL(string: json["user"]["profile_image_url_https"].stringValue)
+    self.user =
+      TwitterUser(from: json["user"])
     self.hashtag =
       getHashtags(json: json["entities"]["hashtags"])
   }
@@ -59,24 +51,18 @@ extension BasicTweet
 
 struct ReTweet: Tweet
 {
-  let authorName: String
   let text: String
   let creationDate: Date
   let retweetCount: Int
-  let profileBannerURL: URL?
-  let profileImageURL: URL?
+  let user: TwitterUser
   let hashtag: [Hashtag]
   
-  let originalUserName: String
-  let originalProfileBannerURL: URL?
-  let originalProfileImageURL: URL?
+  let originalUser: TwitterUser
 }
 extension ReTweet
 {
   init(json: JSON)
   {
-    self.authorName =
-      json["user"]["name"].stringValue
     self.text =
       json["retweeted_status"]["text"].string
       ?? json["retweeted_status"]["full_text"].stringValue
@@ -84,61 +70,49 @@ extension ReTweet
       getDate(isoDate: json["created_at"].stringValue)
     self.retweetCount =
       json["retweet_count"].intValue
-    self.profileBannerURL =
-      URL(string: json["user"]["profile_banner_url"].stringValue)
-    self.profileImageURL =
-      URL(string: json["user"]["profile_image_url_https"].stringValue)
+    self.user =
+      TwitterUser(from: json["user"])
     self.hashtag =
       getHashtags(json: json["entities"]["hashtags"])
     
-    self.originalUserName =
-      json["retweeted_status"]["user"]["name"].stringValue
-    self.originalProfileBannerURL =
-      URL(string: json["retweeted_status"]["user"]["profile_banner_url"].stringValue)
-    self.originalProfileImageURL =
-      URL(string: json["retweeted_status"]["user"]["profile_image_url_https"].stringValue)
+    self.originalUser =
+      TwitterUser(from: json["retweeted_status"]["user"])
   }
 }
 
 
 struct ReplyTweet: Tweet
 {
-  let authorName: String
   let text: String
   let creationDate: Date
   let retweetCount: Int
-  let profileBannerURL: URL?
-  let profileImageURL: URL?
+  let user: TwitterUser
   let hashtag: [Hashtag]
   
-  let interlocutorName: String
+  let interlocutorScreenName: String
 }
 extension ReplyTweet
 {
   init(json: JSON)
   {
-    self.authorName =
-      json["user"]["name"].stringValue
     self.text =
       json["text"].string ?? json["full_text"].stringValue
     self.creationDate =
       getDate(isoDate: json["created_at"].stringValue)
     self.retweetCount =
       json["retweet_count"].intValue
-    self.profileBannerURL =
-      URL(string: json["user"]["profile_banner_url"].stringValue)
-    self.profileImageURL =
-      URL(string: json["user"]["profile_image_url_https"].stringValue)
+    self.user =
+      TwitterUser(from: json["user"])
     self.hashtag =
       getHashtags(json: json["entities"]["hashtags"])
     
-    self.interlocutorName =
+    self.interlocutorScreenName =
       json["in_reply_to_screen_name"].stringValue
   }
 }
 
 // MARK: - Helper functions
-func getDate(isoDate: String) -> Date
+fileprivate func getDate(isoDate: String) -> Date
 {
   let dateFormatter = DateFormatter()
   // Twitter date format - Thu Apr 06 15:24:15 +0000 2017
@@ -147,7 +121,7 @@ func getDate(isoDate: String) -> Date
   return date
 }
 
-func getHashtags(json: JSON) -> [Hashtag]
+fileprivate func getHashtags(json: JSON) -> [Hashtag]
 {
   var ret : [Hashtag] = []
   for (_, subJson): (String, JSON) in json
@@ -156,4 +130,12 @@ func getHashtags(json: JSON) -> [Hashtag]
     ret.append(hashtag)
   }
   return ret
+}
+
+// MARK: - Format functions
+func formatDate(date: Date, dateFormat: String) -> String
+{
+  let dateFormatter = DateFormatter()
+  dateFormatter.dateFormat = dateFormat
+  return dateFormatter.string(from: date)
 }

@@ -20,11 +20,6 @@ class LandingViewController: UIViewController
     super.viewDidLoad()
     self.fetchOAuthAccessToken()
   }
-
-  override func didReceiveMemoryWarning()
-  {
-    super.didReceiveMemoryWarning()
-  }
   
 }
 

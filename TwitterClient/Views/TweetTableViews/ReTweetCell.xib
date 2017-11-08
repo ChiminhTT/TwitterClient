@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original Author Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgi-th-eUW" userLabel="Author Name">
-                        <rect key="frame" x="66" y="23" width="154" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <rect key="frame" x="66" y="23" width="145" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,7 +33,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJB-Xm-x0h" userLabel="Tweet Text">
-                        <rect key="frame" x="66" y="48" width="301" height="42"/>
+                        <rect key="frame" x="66" y="47" width="301" height="43"/>
                         <string key="text">Tweet random un peu plus long que la moyenne pour montrer que j’ai 280 caractères comme tout le monde sur twitter, encore plus de place pour dire des bétises pour les abrutis. Heuresement je suis supérieur et plus intelligent donc moi ça va par contre le rond c’est laid, unlucky.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,11 +70,19 @@
                         <color key="textColor" name="WeldonBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@author_name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6H-Qh-DbO" userLabel="Author ScreenName">
+                        <rect key="frame" x="213" y="23" width="84" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" name="WeldonBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="K6H-Qh-DbO" firstAttribute="top" secondItem="qe1-rY-bs5" secondAttribute="top" constant="23" id="24k-1v-K8l"/>
                     <constraint firstAttribute="bottom" secondItem="KJB-Xm-x0h" secondAttribute="bottom" constant="24.5" id="2Ft-Iw-yfG"/>
                     <constraint firstAttribute="bottom" secondItem="7dR-vW-u5l" secondAttribute="bottom" constant="3" id="2XG-WA-z3t"/>
                     <constraint firstItem="j08-WS-KtI" firstAttribute="leading" secondItem="UY2-TI-aZW" secondAttribute="trailing" constant="3" id="44c-hX-W2X"/>
+                    <constraint firstItem="KJB-Xm-x0h" firstAttribute="top" secondItem="K6H-Qh-DbO" secondAttribute="bottom" constant="7" id="B1b-DR-Xdf"/>
                     <constraint firstItem="xJo-u8-56i" firstAttribute="top" secondItem="qe1-rY-bs5" secondAttribute="top" constant="32" id="FHL-ng-B9t"/>
                     <constraint firstItem="j08-WS-KtI" firstAttribute="top" secondItem="qe1-rY-bs5" secondAttribute="top" constant="9" id="Mss-L7-eob"/>
                     <constraint firstAttribute="bottom" secondItem="Pr1-Rk-I1b" secondAttribute="bottom" constant="3" id="N6V-Z3-m7e"/>
@@ -87,6 +95,7 @@
                     <constraint firstItem="UY2-TI-aZW" firstAttribute="top" secondItem="qe1-rY-bs5" secondAttribute="top" constant="8" id="kN5-ry-o0U"/>
                     <constraint firstItem="xJo-u8-56i" firstAttribute="leading" secondItem="qe1-rY-bs5" secondAttribute="leading" constant="10" id="kx1-Hs-8oA"/>
                     <constraint firstItem="dgi-th-eUW" firstAttribute="top" secondItem="qe1-rY-bs5" secondAttribute="top" constant="23" id="lZV-k8-bmI"/>
+                    <constraint firstItem="K6H-Qh-DbO" firstAttribute="leading" secondItem="dgi-th-eUW" secondAttribute="trailing" constant="2" id="mB6-Us-nKz"/>
                     <constraint firstAttribute="trailing" secondItem="KJB-Xm-x0h" secondAttribute="trailing" constant="8" id="nyV-Qq-tb5"/>
                     <constraint firstItem="KJB-Xm-x0h" firstAttribute="top" secondItem="dgi-th-eUW" secondAttribute="bottom" constant="7" id="pT1-23-c56"/>
                 </constraints>
@@ -95,6 +104,7 @@
             <connections>
                 <outlet property="originalAuthorIconImage" destination="xJo-u8-56i" id="lwZ-7b-NZ6"/>
                 <outlet property="originalAuthorNameLabel" destination="dgi-th-eUW" id="53L-mr-Qda"/>
+                <outlet property="originalScreenNameLabel" destination="K6H-Qh-DbO" id="S1b-3b-7yY"/>
                 <outlet property="retweetCountLabel" destination="Pr1-Rk-I1b" id="bsX-lJ-h01"/>
                 <outlet property="retweetLabel" destination="j08-WS-KtI" id="8cw-rh-HMs"/>
                 <outlet property="tweetTextLabel" destination="KJB-Xm-x0h" id="6Kl-6M-Pr1"/>
@@ -106,9 +116,6 @@
         <image name="RetweetIcon" width="256" height="256"/>
         <namedColor name="OuterSpacegrey">
             <color red="0.25" green="0.31000000239999997" blue="0.3600000143" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="OuterSpacegrey">
-            <color red="0.25" green="0.31000000238418579" blue="0.36000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="WeldonBlue">
             <color red="0.4699999988079071" green="0.61000001430511475" blue="0.67000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

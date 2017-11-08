@@ -21,6 +21,7 @@ class ReTweetCell: UITableViewCell
   @IBOutlet weak var tweetTextLabel: UILabel!
   @IBOutlet weak var retweetCountLabel: UILabel!
   @IBOutlet weak var retweetLabel: UILabel!
+  @IBOutlet weak var originalScreenNameLabel: UILabel!
   
   
   // MARK: - Override functions
@@ -55,24 +56,17 @@ class ReTweetCell: UITableViewCell
   {
     self.tweet = optTweet
     guard let tweet = self.tweet else { return }
+    
     self.tweetTextLabel.text = tweet.text
-    self.originalAuthorNameLabel.text = "@" + tweet.originalUserName
+    self.originalAuthorNameLabel.text = tweet.originalUser.authorName
+    self.originalScreenNameLabel.text = "@\(tweet.originalUser.screenName)"
     self.retweetCountLabel.text = String(tweet.retweetCount)
-    self.retweetLabel.text = tweet.originalUserName + " retweeted"
-    if let profileImageURL = tweet.originalProfileImageURL
+    self.retweetLabel.text = "\(tweet.user.authorName) retweeted"
+    if let profileImageURL = tweet.originalUser.profileImageURL
     {
       downloadTask = self.originalAuthorIconImage.loadImage(url: profileImageURL)
-      transformImageToCircle(on: self.originalAuthorIconImage)
+      self.originalAuthorIconImage.asCircle()
     }
-  }
-  
-  func transformImageToCircle(on imageView: UIImageView)
-  {
-    imageView.layer.borderWidth = 0.5
-    imageView.layer.masksToBounds = false
-    imageView.layer.borderColor = UIColor.black.cgColor
-    imageView.layer.cornerRadius = self.originalAuthorIconImage.frame.height/2
-    imageView.clipsToBounds = true
   }
   
 }

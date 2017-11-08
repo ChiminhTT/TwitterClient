@@ -8,31 +8,31 @@
 
 import UIKit
 
-struct Parameters
+fileprivate struct Parameters
 {
-  static let authorName = "@BanquePopulaire"
+  static let screenName = "@BanquePopulaire"
   static let tweetCount = 10
   static let tweetMode = "extended"
 }
 
-struct TableViewCellIdentifiers
+fileprivate struct TableViewCellIdentifiers
 {
   static let basicTweetCell = "BasicTweetCell"
   static let reTweetCell = "ReTweetCell"
   static let replyTweetCell = "ReplyTweetCell"
 }
 
-let basicTweetCellNib =
+fileprivate let basicTweetCellNib =
   UINib(nibName: TableViewCellIdentifiers.basicTweetCell,
         bundle: nil)
-let reTweetCellNib =
+fileprivate let reTweetCellNib =
   UINib(nibName: TableViewCellIdentifiers.reTweetCell,
         bundle: nil)
-let replyTweetCellNib =
+fileprivate let replyTweetCellNib =
   UINib(nibName: TableViewCellIdentifiers.replyTweetCell,
         bundle: nil)
 
-func initializeTableView(on vc: TweetTableViewController)
+fileprivate func initializeTableView(on vc: TweetTableViewController)
 {
   // Setup cell auto resizing
   vc.tableView.rowHeight = UITableViewAutomaticDimension
@@ -61,7 +61,7 @@ class TweetTableViewController: UITableViewController
   @IBAction func refreshTweets(_ sender: Any)
   {
     self.fetchTweets(
-      from: Parameters.authorName,
+      from: Parameters.screenName,
       count: Parameters.tweetCount,
       tweetMode: Parameters.tweetMode
     )
@@ -74,17 +74,12 @@ class TweetTableViewController: UITableViewController
 
     initializeTableView(on: self)
     self.fetchTweets(
-      from: Parameters.authorName,
+      from: Parameters.screenName,
       count: Parameters.tweetCount,
       tweetMode: Parameters.tweetMode
     )
   }
 
-  override func didReceiveMemoryWarning()
-  {
-    super.didReceiveMemoryWarning()
-  }
-  
 }
 
 // MARK: - Fetch Model Functions
@@ -114,10 +109,10 @@ extension TweetTableViewController
   {
     DispatchQueue.main.async
     {
-        self.present(
-          buildAlertNetworkError(actionLabel: "Ok", actionHandler: {}),
-          animated: true
-        )
+      self.present(
+        buildAlertNetworkError(actionLabel: "Ok", actionHandler: {}),
+        animated: true
+      )
     }
   }
   
@@ -137,22 +132,22 @@ extension TweetTableViewController
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
     let tweet = self.model.tweets[indexPath.row]
-    if tweet is ReTweet
+    if let reTweet = tweet as? ReTweet
     {
       let cell = tableView.dequeueReusableCell(
         withIdentifier: TableViewCellIdentifiers.reTweetCell,
         for: indexPath
       ) as! ReTweetCell
-      cell.setCellContent(optTweet: (tweet as! ReTweet))
+      cell.setCellContent(optTweet: reTweet)
       return cell
     }
-    else if tweet is ReplyTweet
+    else if let replyTweet = tweet as? ReplyTweet
     {
       let cell = tableView.dequeueReusableCell(
         withIdentifier: TableViewCellIdentifiers.replyTweetCell,
         for: indexPath
       ) as! ReplyTweetCell
-      cell.setCellContent(optTweet: (tweet as! ReplyTweet))
+      cell.setCellContent(optTweet: replyTweet)
       return cell
     }
     else // Basic Tweet
@@ -170,7 +165,7 @@ extension TweetTableViewController
                           didSelectRowAt indexPath: IndexPath)
   {
     tableView.deselectRow(at: indexPath, animated: true)
-    self.performSegue(withIdentifier: "tweetDetailSegue", sender: nil)
+    self.performSegue(withIdentifier: "tweetDetailSegue", sender: indexPath.row)
   }
   
 }
@@ -179,8 +174,18 @@ extension TweetTableViewController
 extension TweetTableViewController
 {
   
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-   {
-   }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    let optSelectedRowIndex = sender as? Int
+    guard let selectedRowIndex = optSelectedRowIndex else { return }
+    
+    let tweetDetailViewModel = TweetDetailViewModel(
+      tweet: self.model.tweets[selectedRowIndex]
+    )
+    
+    let destinationVC = segue.destination as! TweetDetailViewController
+    destinationVC.model = tweetDetailViewModel
+    destinationVC.addTweetView(from: tweetDetailViewModel.tweet!)
+  }
  
 }
