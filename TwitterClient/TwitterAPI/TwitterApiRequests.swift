@@ -30,14 +30,21 @@ func requestOAuthAccessToken(
       case .success:
         if let data = response.data
         {
-          let json = JSON(data: data)
-          if let accessToken = json["access_token"].string
+          do
           {
-            completionHandler(.Ok(OAuthAccessToken(value: accessToken)))
+            let json = try JSON(data: data)
+            if let accessToken = json["access_token"].string
+            {
+              completionHandler(.Ok(OAuthAccessToken(value: accessToken)))
+            }
+            else
+            {
+              completionHandler(.Err(json["access_token"].error!))
+            }
           }
-          else
+          catch let error
           {
-            completionHandler(.Err(json["access_token"].error!))
+            completionHandler(.Err(error))
           }
         }
       case .failure(let error):
@@ -70,8 +77,15 @@ func requestTweets(
       switch response.result
       {
       case .success:
-        let tweets = builsTweets(from: JSON(data: response.data!))
-        completionHandler(.Ok(tweets))
+        do
+        {
+          let tweets = builsTweets(from: try JSON(data: response.data!))
+          completionHandler(.Ok(tweets))
+        }
+        catch let error
+        {
+          completionHandler(.Err(error))
+        }
       case .failure(let error):
         completionHandler(.Err(error))
       }
